@@ -1,6 +1,6 @@
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'CDS View for Public Holidays'
-define root view entity ZCAL_I_HOLIDAY_DVT
+define root view entity ZCAL_I_HOLIDAY_dvt
   as select from zcal_holiday_dvt
 {
   key holiday_id       as HolidayId,

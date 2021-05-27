@@ -1,11 +1,12 @@
 managed implementation in class zbp_cal_i_holiday_dvt unique;
 with draft;
 
-define behavior for ZCAL_I_HOLIDAY_DVT alias HolidayRoot
+define behavior for ZCAL_I_HOLIDAY_dvt alias HolidayRoot
+persistent table ZCAL_HOLIDAY_DVT
 lock master total etag last_changed_at
-persistent table zcal_holiday_dvt
 draft table zcal_d_holi_dvt
-
+authorization master ( instance )
+//etag master <field_name>
 {
   create;
   update;

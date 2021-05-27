@@ -3,7 +3,7 @@
 @Metadata.allowExtensions: true
 define root view entity ZCAL_C_HOLIDAY_DVT
   provider contract transactional_query
-  as projection on ZCAL_I_HOLIDAY_DVT
+  as projection on ZCAL_I_HOLIDAY_dvt
 {
   key HolidayId,
       MonthOfHoliday,
