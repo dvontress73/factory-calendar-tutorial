@@ -1,0 +1,22 @@
+managed implementation in class zbp_cal_i_holiday_dvt unique;
+with draft;
+
+define behavior for ZCAL_I_HOLIDAY_DVT alias HolidayRoot
+lock master total etag last_changed_at
+persistent table zcal_holiday_dvt
+draft table zcal_d_holi_dvt
+
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly : update ) HolidayId;
+
+  mapping for zcal_holiday_dvt corresponding
+  {
+    HolidayId = holiday_id;
+    MonthOfHoliday = month_of_holiday;
+    DayOfHoliday = day_of_holiday;
+  }
+}

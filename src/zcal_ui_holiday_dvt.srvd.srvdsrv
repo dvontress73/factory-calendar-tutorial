@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for public holiday'
+define service Zcal_ui_holiday_dvt {
+  expose ZCAL_C_HOLIDAY_DVT as HolidayRoot;
+}
