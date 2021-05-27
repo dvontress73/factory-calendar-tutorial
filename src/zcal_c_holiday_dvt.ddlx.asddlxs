@@ -1,35 +1,34 @@
 @Metadata.layer: #CORE
-
+@Search.searchable: true
 @UI: {
-   headerInfo: { typeName: 'Public Holiday',
-                 typeNamePlural: 'Public Holidays',
-                 title: { type: #STANDARD, label: 'Public Holiday', value: 'HolidayId' } },
-                 presentationVariant: [{ sortOrder: [{ by: 'HolidayId', direction: #ASC }] }] }
-
+  headerInfo: { typeName: 'Public Holiday',
+                typeNamePlural: 'Public Holidays',
+                title: { type: #STANDARD, label: 'Public Holiday', value: 'HolidayId' } },
+  presentationVariant: [{ sortOrder: [{ by: 'HolidayId', direction:  #ASC }] }] }
 annotate view ZCAL_C_HOLIDAY_DVT with
 {
   @UI.facet: [
-      {
-          id: 'PublicHoliday',
-          purpose: #STANDARD,
-          label: 'Public Holiday',
-          type: #IDENTIFICATION_REFERENCE,
-          position: 1
-      }]
+    {
+      id: 'PublicHoliday',
+      purpose: #STANDARD,
+      label: 'Public Holiday',
+      type: #IDENTIFICATION_REFERENCE,
+      position: 1
+    }]
 
-  @UI: { identification: [{ position: 1 }],
-         lineItem: [{ position: 1 }] }
+  @UI: {  identification: [ { position: 1 } ],
+          lineItem:       [ { position: 1 } ] }
+  @Search.defaultSearchElement: true
   HolidayId;
   @UI: {  identification: [ { position: 2 } ],
-         lineItem:       [ { position: 2 } ] }
+          lineItem:       [ { position: 2 } ] }
   MonthOfHoliday;
   @UI: {  identification: [ { position: 3 } ],
-         lineItem:       [ { position: 3 } ] }
+          lineItem:       [ { position: 3 } ] }
   DayOfHoliday;
   @UI.hidden: true
   last_changed_at;
   @UI.hidden: true
   local_last_changed_at;
-
 
 }
