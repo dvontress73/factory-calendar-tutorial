@@ -2,11 +2,9 @@ managed implementation in class zbp_cal_i_holiday_dvt unique;
 with draft;
 
 define behavior for ZCAL_I_HOLIDAY_dvt alias HolidayRoot
-persistent table ZCAL_HOLIDAY_DVT
 lock master total etag last_changed_at
+persistent table zcal_holiday_dvt
 draft table zcal_d_holi_dvt
-authorization master ( instance )
-//etag master <field_name>
 {
   create;
   update;
@@ -14,10 +12,32 @@ authorization master ( instance )
 
   field ( readonly : update ) HolidayId;
 
+  association _HolidayTxt { create; with draft; }
+
   mapping for zcal_holiday_dvt corresponding
   {
     HolidayId = holiday_id;
     MonthOfHoliday = month_of_holiday;
     DayOfHoliday = day_of_holiday;
+  }
+}
+
+define behavior for ZCAL_I_HOLIDAYTXT_DVT alias HolidayText
+persistent table zcal_holitxt_dvt
+draft table zcal_d_holit_dvt
+lock dependent by _Public_Holiday
+{
+  update;
+  delete;
+  field ( readonly : update ) HolidayId;
+  field ( readonly : update ) Language;
+
+  association _Public_Holiday { with draft; }
+
+  mapping for zcal_holitxt_dvt corresponding
+  {
+    Language = spras;
+    HolidayId = holiday_id;
+    HolidayDescription = fcal_description;
   }
 }

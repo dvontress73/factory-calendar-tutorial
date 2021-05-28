@@ -14,17 +14,27 @@ annotate view ZCAL_C_HOLIDAY_DVT with
       label: 'Public Holiday',
       type: #IDENTIFICATION_REFERENCE,
       position: 1
-    }]
+    },
+    { id: 'Description',
+      label: 'Description',
+      type: #LINEITEM_REFERENCE,
+      position: 2,
+      targetElement: '_HolidayTxt'
+    }
+   ]
 
   @UI: {  identification: [ { position: 1 } ],
           lineItem:       [ { position: 1 } ] }
   @Search.defaultSearchElement: true
   HolidayId;
-  @UI: {  identification: [ { position: 2 } ],
+  @UI: {  identification: [ { position: 2, hidden: true } ],
           lineItem:       [ { position: 2 } ] }
-  MonthOfHoliday;
-  @UI: {  identification: [ { position: 3 } ],
+  HolidayDescription;
+  @UI: {  identification: [ { position: 3} ],
           lineItem:       [ { position: 3 } ] }
+  MonthOfHoliday;
+  @UI: {  identification: [ { position: 4 } ],
+          lineItem:       [ { position: 4 } ] }
   DayOfHoliday;
   @UI.hidden: true
   last_changed_at;

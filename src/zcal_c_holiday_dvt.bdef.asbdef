@@ -1,10 +1,21 @@
-projection;
-//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+projection implementation in class zbp_cal_c_holiday_dvt unique;
+//strict; //Uncomment this line to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
 use draft;
 
 define behavior for ZCAL_C_HOLIDAY_DVT alias HolidayRoot
 {
-  use create;
+  use create(augment);
+  use update(augment);
+  use delete;
+  use association _HolidayTxt { create; with draft; }
+
+  field ( modify ) HolidayDescription;
+}
+
+define behavior for ZCAL_C_HOLIDAYTXT_DVT alias HolidayText
+{
   use update;
   use delete;
+
+  use association _Public_Holiday { with draft; }
 }

@@ -6,7 +6,9 @@
 "ZCAL_HOLIDAY_DVT"
 ],
 "ASSOCIATED":
-[],
+[
+"ZCAL_I_HOLIDAYTXT_DVT"
+],
 "BASE":
 [],
 "ANNO_REF":
